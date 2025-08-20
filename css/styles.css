@@ -298,11 +298,13 @@ button {
   color: #404bbf;
 }
 
+.mobile-menu-address {
+  margin-bottom: 48px;
+}
 .mobile-address-list {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  margin-bottom: 48px;
 }
 
 .mobile-address-link {
@@ -320,7 +322,6 @@ button {
 .mobile-social-list {
   display: flex;
   gap: 40px;
-  margin-bottom: 40px;
 }
 
 .mobile-social-link {
@@ -335,9 +336,10 @@ button {
   fill: #f4f4fd;
 }
 
-.mobile-nav-link @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .mobile-menu {
     display: none;
+    pointer-events: none;
   }
 }
 
@@ -350,7 +352,10 @@ button {
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
-    url(../images/hero.jpg);
+    image-set(
+      url(../images/hero/dark-mob-bg.jpg) 1x,
+      url(../images/hero/dark-mob-bg@2x.jpg) 2x
+    );
   background-repeat: no-repeat;
   background-position: center;
   background-color: #2e2f42;
@@ -394,11 +399,20 @@ button {
   .hero {
     max-width: 768px;
     padding: 112px 0;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      image-set(
+        url(../images/hero/dark-tab-bg.jpg) 1x,
+        url(../images/hero/dark-tab-bg@2x.jpg) 2x
+      );
   }
 
   .hero-title {
     margin: 0 auto 36px;
-    max-width: 768px;
+    max-width: 496px;
     font-size: 56px;
     line-height: 1.07;
   }
@@ -408,11 +422,19 @@ button {
   .hero {
     max-width: 1440px;
     padding: 188px 0;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      image-set(
+        url(../images/hero/dark-pc-bg.jpg) 1x,
+        url(../images/hero/dark-pc-bg@2x.jpg) 2x
+      );
   }
 
   .hero-title {
     margin: 0 auto 48px;
-    max-width: 496px;
   }
 }
 
@@ -496,7 +518,7 @@ button {
   }
 
   .benefits-description {
-    font-weight: 400px;
+    font-weight: 400;
   }
 }
 
@@ -526,7 +548,6 @@ button {
 
 .team-item {
   width: 264px;
-  height: 428px;
   background-color: #ffffff;
   border-radius: 0px 0px 4px 4px;
   box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
@@ -534,9 +555,7 @@ button {
 }
 
 .avatar-description-box {
-  width: 232px;
-  height: 104px;
-  margin: 32px 16px;
+  padding: 32px 16px;
 }
 
 .avatar-title {
@@ -630,15 +649,13 @@ button {
 }
 
 .portfolio-item {
-  width: 288px;
-  height: 400px;
+  width: 100%;
   box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
     0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
   background: #fff;
 }
 .portfolio-img {
   width: 100%;
-  height: 280px;
 }
 
 .overlay-text {
@@ -651,8 +668,6 @@ button {
   border-bottom: 1px solid #e7e9fc;
   border-right: 1px solid #e7e9fc;
   border-left: 1px solid #e7e9fc;
-  width: 288px;
-  height: 120px;
 }
 
 .portfolio-item-title {
@@ -680,18 +695,11 @@ button {
 
   .portfolio-item {
     width: calc((100% - 24px) / 2);
-    width: 356px;
-    height: 420px;
     box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08);
   }
 
   .portfolio-img {
     width: 100%;
-    height: 300px;
-  }
-
-  .portfolio-item-cont {
-    width: 356px;
   }
 }
 
@@ -701,12 +709,11 @@ button {
   }
 
   .portfolio-list {
-    gap: 24px;
+    column-gap: 24px;
+    row-gap: 48px;
   }
 
   .portfolio-item {
-    width: 360px;
-    height: 420px;
     width: calc((100% - 48px) / 3);
     transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -714,11 +721,6 @@ button {
   .portfolio-item:hover {
     box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
       0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
-  }
-
-  .portfolio-img {
-    width: 100%;
-    height: 300px;
   }
 
   .portfolio-overlay-sector {
@@ -748,11 +750,6 @@ button {
   .portfolio-item:hover .overlay-text {
     transform: translateY(0%);
   }
-
-  .portfolio-item-cont {
-    width: 360px;
-    height: 120px;
-  }
 }
 
 /* footer */
@@ -771,13 +768,12 @@ button {
 
 .footer-logo-container {
   width: 288px;
-  height: 112px;
 }
 
 .footer-logo {
-  display: flex;
+  display: block;
   margin-bottom: 16px;
-  margin-left: 86px;
+  text-align: center;
 }
 
 .footer-logo .logo-part {
@@ -832,6 +828,7 @@ button {
   letter-spacing: 0.02em;
   color: #fff;
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .input-footer-email {
@@ -864,6 +861,7 @@ button {
 
 .mail-submit-btn {
   display: flex;
+  gap: 16px;
   justify-content: center;
   align-items: center;
   border-radius: 4px;
@@ -899,7 +897,6 @@ button {
 
   .footer-logo-container {
     width: 264px;
-    height: 112px;
   }
 
   .footer-social-text {
@@ -919,8 +916,13 @@ button {
     height: 80px;
   }
 
+  .footer-mail-title {
+    text-align: start;
+  }
+
   .input-footer-email {
     width: 264px;
+    margin-bottom: 0;
   }
 
   .footer-mail-form {
